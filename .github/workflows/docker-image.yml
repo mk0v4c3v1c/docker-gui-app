@@ -21,18 +21,18 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        IMAGE_TAG="vladadevops/python-image:$(date +%s)"
+        IMAGE_TAG="vladadevops/python-image"
         docker build . --file Dockerfile --tag $IMAGE_TAG
         echo "Built image with tag $IMAGE_TAG"
 
     - name: Tag the Docker image
       run: |
-        IMAGE_TAG="vladadevops/python-image:$(date +%s)"
+        IMAGE_TAG="vladadevops/python-image"
         docker tag $IMAGE_TAG vladadevops/python-image:latest
         echo "Tagged image $IMAGE_TAG as latest"
 
     - name: Push the Docker image to DockerHub
       run: |
-        IMAGE_TAG="vladadevops/python-image:$(date +%s)"
+        IMAGE_TAG="vladadevops/python-image:latest"
         docker push $IMAGE_TAG
         docker push vladadevops/python-image:latest
